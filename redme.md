@@ -111,3 +111,24 @@ Esto porque no se ha creado localmente una referencia a esa rama remota. Lo pued
 ![alt text](image-8.png)
 
 Para hacer seguimiento de forma local a la rama Colombia ejecute el comando
+
+`git checkout --track origin/Colombia`
+
+![alt text](image-9.png)
+
+Consulte nuevamente el listado de ramas para evidenciarlo.
+
+![alt text](image-10.png)
+
+2. Copie y pegue el archivo /files_to_add/Colombia/bandeja_paisa.html en el directorio /recetas/Colombia de su copia de trabajo local.
+3. Copie y pegue la imagen /files_to_add/imagenes/bandeja_paisa.jpg en la carpeta /imagenes de su copia de trabajo local.
+4. Incluya la nueva receta en el archivo index.html.
+5. Confirme los cambios en el repositorio local.
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+Sincronice los cambios con el repositorio remoto.
