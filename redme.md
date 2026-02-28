@@ -154,9 +154,37 @@ Ubíquese en la rama master.
 
 ![alt text](image-11.png)
 
-Sincronice los cambios con el repositorio remoto.
+## 6.Sincronice los cambios con el repositorio remoto.
 
 ![alt text](image-12.png)
 
 
+## 7. Integre los cambios de la rama Colombia con la rama Master.
 
+![alt text](image-15.png)
+
+Si Git no reconoce Colombia en su espacio local, mezcle con la rama remota de Colombia.
+
+![alt text](image-16.png)
+
+Note que Git ha detectado un conflicto pues el archivo index.html tiene cambios diferentes en cada una de las ramas.
+
+Para solucionarlo abra el archivo en su IDE preferido. Resaltado en verde aparecen los cambios presentes en la rama master y resaltado en azul los cambios presentes en la rama origin/Colombia, acepte los 2 cambios y haga commit en su repositorio local.
+
+![alt text](image-17.png)
+
+Ahora guarde los cambios.
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+## 8. Sincronice los cambios con el repositorio remoto.
+
+![alt text](image-21.png)
+
+Con este último paso, usted ha solucionado el conflicto generado por modificar la misma parte del mismo archivo en diferentes ramas.
+
+En el siguiente curso, aprenderá sobre los diferentes flujos de trabajo en Git y la utilidad de las ramas en esos casos.
