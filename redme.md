@@ -43,3 +43,19 @@
 # Si desea consultar el nombre y cantidad de archivos modificados, así como la cantidad de líneas insertadas o eliminadas, utilice el comando:
 
 `git diff --stat master..Brasil //la opción --stat permite consultar la cantidad de archivos modificados y la cantidad de cambios`
+
+## 8. Mezclar ramas
+
+# En esta sección del tutorial fusionará los cambios realizados en la rama Brasil con la rama master.
+
+# Siga los siguientes pasos:
+
+# 1. Ubíquese en la rama master.
+
+`git checkout master`
+
+![alt text](image-5.png)
+
+# Fusione la rama Brasil en master.
+
+`git merge Brasil`
