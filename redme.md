@@ -1,61 +1,102 @@
+# Tutorial Git: Recetas Hispanoamericanas (Secciones 6 a 9)
+
 ## 6. Crear y extraer etiquetas
 
-## Cree una etiqueta anotada para el último commit.
+### 6.1 Crear una etiqueta anotada
+Ejecute el siguiente comando para registrar una etiqueta con mensaje y autor en el último commit:
 
-`git tag -a v1.0 -m 'Receta brasileña: Arrolladitos'`
+```bash
+git tag -a v1.0 -m "Receta brasileña: Arrolladitos"
+```
 
-![alt text](image.png)
+![Creación de la etiqueta v1.0](image.png)
 
-## Liste las etiquetas del repositorio.
+### 6.2 Listar etiquetas disponibles
+Para confirmar qué etiquetas existen actualmente:
 
-`git tag`
+```bash
+git tag
+```
 
-![alt text](image-1.png)
+![Listado de etiquetas](image-1.png)
 
-## Consulte la etiqueta creada en el primer punto.
+### 6.3 Consultar información de la etiqueta
+Revise la metadata y los cambios asociados a `v1.0` con:
 
-`git show v1.0`
+```bash
+git show v1.0
+```
 
-#3.Consulte la etiqueta creada en el primer punto.
+![Detalle de la etiqueta](image-2.png)
 
-![alt text](image-2.png)
-#Este comando muestra toda la información relacionada con la etiqueta: su autor, la fecha, el commit correspondiente y una previsualización de los archivos involucrados.
+Este comando muestra autor, fecha, commit apuntado y una vista previa del diff incluido en la etiqueta.
 
-## Elimine la etiqueta v1.0
+### 6.4 Eliminar una etiqueta local
+Si necesita borrar la etiqueta `v1.0`, utilice:
 
-`git tag -d v1.0 //la opción -d indica que se hará un delete de la etiqueta`
+```bash
+git tag -d v1.0
+```
 
-![alt text](image-3.png)
+![Eliminación de la etiqueta](image-3.png)
+
 
 ## 7. Comparar ramas
 
-# Ejecute el siguiente comando para comparar dos ramas:
+La comparación entre ramas permite estudiar qué archivos se han agregado, modificado o eliminado en un flujo de trabajo colaborativo. Use el siguiente resumen según la información que necesite:
 
-`git diff --name-status master..Brasil //la opción --name--status permite consultar el nombre de los archivos y su estado (Delete, Add or Modified)`
+| Objetivo | Comando | Descripción |
+| --- | --- | --- |
+| Ver archivos y su estado | `git diff --name-status master..Brasil` | Muestra solo los nombres y el tipo de cambio (A, M, D). |
+| Revisar el contenido modificado | `git diff master..Brasil` | Incluye el diff completo línea a línea. |
+| Obtener estadísticas resumidas | `git diff --stat master..Brasil` | Indica cuántos archivos cambiaron y cuántas líneas se agregaron o eliminaron. |
 
-![alt text](image-4.png)
-# El comando anterior permite comparar master con respecto a Brasil. Note que los archivos marcados con la letra A corresponden a los agregados en la sección anterior y el archivo marcado con la letra M corresponde al modificado.
-# Este comando tiene muchas variaciones dependiendo de lo requerido.
-# En el caso de querer consultar las diferencias incluyendo el contenido de los archivos implicados, utilice el comando:
+![Comparación de ramas](image-4.png)
 
-`git diff master..Brasil`
+En la captura se observa cómo los archivos marcados con `A` corresponden a nuevos documentos y los marcados con `M` a modificaciones existentes.
 
-# Si desea consultar el nombre y cantidad de archivos modificados, así como la cantidad de líneas insertadas o eliminadas, utilice el comando:
-
-`git diff --stat master..Brasil //la opción --stat permite consultar la cantidad de archivos modificados y la cantidad de cambios`
 
 ## 8. Mezclar ramas
 
-# En esta sección del tutorial fusionará los cambios realizados en la rama Brasil con la rama master.
+Integre los cambios de la rama `Brasil` en `master` siguiendo estos pasos:
 
-# Siga los siguientes pasos:
+1. Cambie a la rama principal:
 
-# 1. Ubíquese en la rama master.
+	```bash
+	git checkout master
+	```
 
-`git checkout master`
+	![Checkout a master](image-5.png)
 
-![alt text](image-5.png)
+2. Fusione la rama de trabajo:
 
-# Fusione la rama Brasil en master.
+	```bash
+	git merge Brasil
+	```
 
-`git merge Brasil`
+	![Merge de Brasil en master](image-6.png)
+
+Tras ejecutar ambos comandos tendrá una fusión limpia; más adelante se simulará un caso con conflictos para practicar su resolución.
+
+
+## 9. Conflictos de fusión
+
+Los conflictos aparecen cuando dos ramas editan simultáneamente el mismo archivo o bloque de código. En este taller se reproducirá el trabajo paralelo de dos desarrolladores: uno en `master` y otro en `Colombia`. Cada uno agregará una receta y modificará el `index`, provocando un conflicto que deberá resolverse manualmente antes de completar la integración.
+
+Antes de empezar, abra dos terminales o consolas de Git Bash, asegúrese que cada una esté en una ubicación diferente y que tenga el repositorio del proyecto clonado.
+
+Personalice su identidad en cada una de las terminales teniendo en cuenta el material proporcionado en lecciones pasadas. Si no lo tiene a la mano, ejecute:
+
+## Para el desarrollador 1:
+
+`git config user.name "desarrollador_1"`
+`git config user.email desarrollador_1@uniandes.edu.co`
+
+## Para el desarrollador 2:
+
+`git config user.name "desarrollador_2"`
+`git config user.email desarrollador_2@uniandes.edu.co`
+
+## Ahora, siga los siguientes pasos para el desarrollador 1:
+
+Ubíquese en la rama Colombia.
