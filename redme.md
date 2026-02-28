@@ -100,3 +100,14 @@ Personalice su identidad en cada una de las terminales teniendo en cuenta el mat
 ## Ahora, siga los siguientes pasos para el desarrollador 1:
 
 Ubíquese en la rama Colombia.
+
+`git checkout Colombia`
+
+Si aparece el siguiente error:
+
+![alt text](image-7.png)
+Esto porque no se ha creado localmente una referencia a esa rama remota. Lo puede verificar consultando las ramas del repositorio.
+
+![alt text](image-8.png)
+
+Para hacer seguimiento de forma local a la rama Colombia ejecute el comando
